@@ -591,6 +591,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'bling/vim-bufferline'
 Bundle 'vim-scripts/tComment'
+Bundle 'dylanaraps/wal.vim'
 
 " ==== PLUGIN THEMES ====
 Plugin 'vim-scripts/darktango.vim'
@@ -614,7 +615,7 @@ call vundle#end()
 filetype plugin indent on
 
 " ==== BASIC ====
-colorscheme gruvbox
+colorscheme wal
 set guifont=Monospace\ 10
 set fillchars+=vert:\$
 syntax enable
