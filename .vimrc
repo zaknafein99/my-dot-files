@@ -1,4 +1,4 @@
-
+set nocompatible
 set clipboard=unnamed
 set number
 set relativenumber
@@ -13,8 +13,9 @@ Plug 'vim-scripts/tComment'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
 Plug 'Townk/vim-autoclose'
-Plug 'vim-syntastic/syntastic'
+Plug 'scrooloose/syntastic'
 Plug 'Quramy/tsuquyomi'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -41,9 +42,9 @@ let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 
 syntax enable
-set background=dark
+set background=light  
 let g:one_allow_italics = 1
-colorscheme onedark
+colorscheme solarized
 highlight Comment gui=italic
 highlight Comment cterm=italic
 highlight htmlArg gui=italic
@@ -51,6 +52,22 @@ highlight htmlArg cterm=italic
 set wrap                                                                            
 set textwidth=79                                                                    
 set formatoptions=qrn1
+
+nnoremap <silent> <ESC>OA <UP>
+
+nnoremap <silent> <ESC>OB <DOWN>
+
+nnoremap <silent> <ESC>OC <RIGHT>
+
+nnoremap <silent> <ESC>OD <LEFT>
+
+inoremap <silent> <ESC>OA <UP>
+
+inoremap <silent> <ESC>OB <DOWN>
+
+inoremap <silent> <ESC>OC <RIGHT>
+
+inoremap <silent> <ESC>OD <LEFT>
 
 " In many terminal emulators the mouse works just fine, thus enable it.             
 "if has('mouse')                                                                     
