@@ -15,13 +15,14 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'Townk/vim-autoclose'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'Quramy/tsuquyomi'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
+Plug 'hallettj/jslint.vim'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -35,16 +36,40 @@ call plug#end()
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] 
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+
+
+"==VIM-JAVASCRIPT==
+let g:javascript_plugin_jsdoc=1
+let g:javascript_plugin_ngdoc=1
+
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
+
+set conceallevel=1
 
 
 syntax enable
 set background=light  
-let g:one_allow_italics = 1
 colorscheme solarized
+let g:one_allow_italics = 1
 highlight Comment gui=italic
 highlight Comment cterm=italic
 highlight htmlArg gui=italic
@@ -96,8 +121,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
                                                                              
 " =================== vim-airline ========================                          
                                                                                     
-let g:airline_theme='one'
-" let g:airline_solarized_bg='dark'
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 " set to use powerline fonts when not in a ssh session
 let g:remoteSession = ($STY == "")                                                  
 if !g:remoteSession 
