@@ -23,6 +23,8 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 Plug 'hallettj/jslint.vim'
+Plug 'ternjs/tern_for_vim'
+
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -67,7 +69,7 @@ set conceallevel=1
 
 
 syntax enable
-set background=light  
+set background=dark  
 colorscheme solarized
 let g:one_allow_italics = 1
 highlight Comment gui=italic
