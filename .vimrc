@@ -106,6 +106,7 @@ if !v:shell_error && s:uname == "Linux" && !has('vim')
 endif  
 
 
+
 "PLUGIN CONFIG
 "==================== NerdTree ====================                                 
 " For toggling                                                                      
@@ -131,5 +132,5 @@ endif
 " vim:ts=2:sw=2:et
 
 let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
-
+let $JS_CMD='node'
 
