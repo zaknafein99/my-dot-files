@@ -1,5 +1,3 @@
-rename 
-rename Rogue.One.2016.1080p.BluRay.x264-[YTS-AG].srt
 rename Rogue.One.2016.1080.BluRay.x264-[YTS.AG].srt
 rename Rogue.One.2016.1080p.BluRay.x264-[YTS.AG].srt
 shell mkdir Divinity\ Original\ Sin
@@ -45,6 +43,8 @@ mkdir backend
 mkdir 22
 rename Stargate Origins
 search leg
-open_with º
 search si
 delete
+search us
+search run
+open_with º

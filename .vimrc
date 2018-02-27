@@ -22,7 +22,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
-Plug 'hallettj/jslint.vim'
+"Plug 'hallettj/jslint.vim'
 Plug 'ternjs/tern_for_vim'
 
 
