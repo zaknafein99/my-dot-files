@@ -1,8 +1,19 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/"))
+;(add-to-list 'package-archives
+;	     '("melpa" . "http://melpa.org/packages/"))
+;(package-initialize)
+
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -12,6 +23,10 @@
 (unless (package-installed-p 'spacemacs-theme)
   (package-refresh-contents)
   (package-install 'spacemacs-theme))
+
+(unless (package-installed-p 'nlinum-relative)
+  (package-refresh-contents)
+  (package-install 'nlinum-relative))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -40,15 +55,22 @@
   :init
   (beacon-mode 1))
 
+(use-package nlinum-relative
+    :config
+    ;; something else you want
+    (nlinum-relative-setup-evil)
+    (add-hook 'prog-mode-hook 'nlinum-relative-mode))
+
 ;;(add-to-list 'load-path "~/.emacs.d/evil")
 ;;(require 'evil)
 ;;(evil-mode 1)
 
-(require 'linum-relative)
-
-(linum-on)
-(linum-relative-mode)
-(global-linum-mode t)
+(require 'nlinum-relative)
+(nlinum-relative-setup-evil)                    ;; setup for evil
+(add-hook 'prog-mode-hook 'nlinum-relative-mode)
+(setq nlinum-relative-redisplay-delay 0)      ;; delay
+(setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
+(setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
 
 (tool-bar-mode -1)
 
