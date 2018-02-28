@@ -32,11 +32,15 @@
 ;;(require 'evil)
 ;;(evil-mode 1)
 
-(require 'linum-relative)
-
-(linum-on)
-(linum-relative-mode)
-(global-linum-mode t)
+(use-package nlinum-relative
+    :config
+    ;; something else you want
+    (nlinum-relative-setup-evil)
+    (add-hook 'prog-mode-hook 'nlinum-relative-mode))    (require 'nlinum-relative)
+   
+   ;; (linum-on)
+   ;; (nlinum-relative-mode)
+   ;;(global-linum-mode t)
 
 (setq ido-enable-flex-matching nil)
 (setq ido-create-new-buffer 'always)
