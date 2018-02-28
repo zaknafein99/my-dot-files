@@ -18,6 +18,10 @@
 #+END_SRC
 
 * Org
+** basic config
+#+BEGIN_SRC emacs-lisp 
+  (setq org-src-window-setup 'current-window)
+#+END_SRC
 ** Org Bullets
 #+BEGIN_SRC emacs-lisp
   (use-package org-bullets
@@ -27,7 +31,21 @@
 
 #+END_SRC
 
-* Editor
+* Minor Settings
+** subword
+#+BEGIN_SRC emacs-lisp
+(global-subword-mode 1)
+#+END_SRC
+** electric
+#+BEGIN_SRC emacs-lisp
+  (setq electric-pair-pairs '(
+                              (?\( . ?\))
+                              (?\[ . ?\])
+                              (?\" . ?\")
+                              (?\{ . ?\})
+                              ))
+  (electric-pair-mode t)
+#+END_SRC
 ** Scroll línea por línea
 #+BEGIN_SRC emacs-lisp
 (setq scroll-conservatively 100)
@@ -88,6 +106,12 @@
 (setq nlinum-relative-redisplay-delay 0)      ;; delay
 (setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
 (setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
+#+END_SRC
+** sudo edit
+#+BEGIN_SRC emacs-lisp
+  (use-package sudo-edit
+    :ensure t
+    :bind("s-e" . sudo-edit))
 #+END_SRC
 * IDO
 ** Enable ido mode
@@ -153,4 +177,34 @@
   (use-package rainbow-mode
     :ensure t
     :init (rainbow-mode 1))
+#+END_SRC
+* switch-window
+#+BEGIN_SRC emacs-lisp
+  (use-package switch-window
+    :ensure t
+    :config
+    (setq switch-window-input-style 'minibuffer)
+    (setq switch-window-increase 4)
+    (setq switch-window-threshold 2)
+    (setq switch-window-shortcut-style 'qwerty)
+    (setq switch-window-qwerty-shortcuts
+          '("a" "s" "d" "f" "h" "j" "k" "l"))
+    :bind
+    ([remap other-window] . switch-window))
+#+END_SRC
+* window splitting function
+#+BEGIN_SRC emacs-lisp
+  (defun split-and-follow-horizontally()
+    (interactive)
+    (split-window-below)
+    (balance-windows)
+    (other-window 1))
+  (global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+
+  (defun split-and-follow-vertically()
+    (interactive)
+    (split-window-right)
+    (balance-windows)
+    (other-window 1))
+  (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
 #+END_SRC

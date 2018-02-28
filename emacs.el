@@ -8,10 +8,22 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(setq org-src-window-setup 'current-window)
+
 (use-package org-bullets
   :ensure t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+
+(global-subword-mode 1)
+
+(setq electric-pair-pairs '(
+                            (?\( . ?\))
+                            (?\[ . ?\])
+                            (?\" . ?\")
+                            (?\{ . ?\})
+                            ))
+(electric-pair-mode t)
 
 (setq scroll-conservatively 100)
 
@@ -44,6 +56,10 @@
 (setq nlinum-relative-redisplay-delay 0)      ;; delay
 (setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
 (setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
+
+(use-package sudo-edit
+  :ensure t
+  :bind("s-e" . sudo-edit))
 
 (setq ido-enable-flex-matching nil)
 (setq ido-create-new-buffer 'always)
@@ -86,3 +102,29 @@
 (use-package rainbow-mode
   :ensure t
   :init (rainbow-mode 1))
+
+(use-package switch-window
+  :ensure t
+  :config
+  (setq switch-window-input-style 'minibuffer)
+  (setq switch-window-increase 4)
+  (setq switch-window-threshold 2)
+  (setq switch-window-shortcut-style 'qwerty)
+  (setq switch-window-qwerty-shortcuts
+        '("a" "s" "d" "f" "h" "j" "k" "l"))
+  :bind
+  ([remap other-window] . switch-window))
+
+(defun split-and-follow-horizontally()
+  (interactive)
+  (split-window-below)
+  (balance-windows)
+  (other-window 1))
+(global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+
+(defun split-and-follow-vertically()
+  (interactive)
+  (split-window-right)
+  (balance-windows)
+  (other-window 1))
+(global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
