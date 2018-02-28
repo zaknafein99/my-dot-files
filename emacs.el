@@ -28,19 +28,22 @@
   :init
   (beacon-mode 1))
 
-;;(add-to-list 'load-path "~/.emacs.d/evil")
-;;(require 'evil)
-;;(evil-mode 1)
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 1)
 
 (use-package nlinum-relative
     :config
     ;; something else you want
     (nlinum-relative-setup-evil)
-    (add-hook 'prog-mode-hook 'nlinum-relative-mode))    (require 'nlinum-relative)
-   
-   ;; (linum-on)
-   ;; (nlinum-relative-mode)
-   ;;(global-linum-mode t)
+    (add-hook 'prog-mode-hook 'nlinum-relative-mode))
+
+(require 'nlinum-relative)
+(nlinum-relative-setup-evil)                    ;; setup for evil
+(add-hook 'prog-mode-hook 'nlinum-relative-mode)
+(setq nlinum-relative-redisplay-delay 0)      ;; delay
+(setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
+(setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
 
 (setq ido-enable-flex-matching nil)
 (setq ido-create-new-buffer 'always)
