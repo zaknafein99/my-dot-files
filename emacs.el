@@ -45,23 +45,28 @@
 
 (tool-bar-mode -1)
 
+(use-package swiper
+  :ensure t
+  :config (global-set-key "\C-s" 'swiper))
+
 (use-package beacon
   :ensure t
   :init
   (beacon-mode 1))
 
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
-(evil-mode 1)
+;;(add-to-list 'load-path "~/.emacs.d/evil")
+;;(require 'evil)
+;;(Evil-mode 1)
+;; (require 'colemak-evil)
 
 (use-package nlinum-relative
     :config
     ;; something else you want
-    (nlinum-relative-setup-evil)
+    ;;(nlinum-relative-setup-evil)
     (add-hook 'prog-mode-hook 'nlinum-relative-mode))
 
 (require 'nlinum-relative)
-(nlinum-relative-setup-evil)                    ;; setup for evil
+;;(nlinum-relative-setup-evil)                    ;; setup for evil
 (add-hook 'prog-mode-hook 'nlinum-relative-mode)
 (setq nlinum-relative-redisplay-delay 0)      ;; delay
 (setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
