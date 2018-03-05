@@ -10,7 +10,13 @@
 (ad-activate 'ansi-term)
 (global-set-key (kbd "<s-return>") 'ansi-term)
 #+END_SRC
-
+** better-shell
+#+BEGIN_SRC emacs-lisp
+(use-package better-shell
+    :ensure t
+    :bind (("C-'" . better-shell-shell)
+           ("C-;" . better-shell-remote-open)))
+#+END_SRC
 * Aliases
 ** Changin default response mode to a single char
 #+BEGIN_SRC emacs-lisp
@@ -183,7 +189,7 @@
   (use-package avy
     :ensure t
     :bind
-    ("M-s" . avy-goto-char))
+    ("s-s" . avy-goto-char))
 #+END_SRC
 * Config edit/reload
 ** edit

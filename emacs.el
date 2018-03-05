@@ -76,6 +76,9 @@
   :ensure t
   :bind("s-e" . sudo-edit))
 
+(use-package ranger
+)
+
 (setq ido-enable-flex-matching nil)
 (setq ido-create-new-buffer 'always)
 (setq ido-everywhere t)
