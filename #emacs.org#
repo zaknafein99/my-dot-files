@@ -97,6 +97,7 @@
     :config (global-set-key "\C-s" 'swiper))
 #+END_SRC
 ** which-key
+#+END_SRC
 #+BEGIN_SRC emacs-lips
 (use-package which-key
      :ensure t
