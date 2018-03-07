@@ -6,6 +6,11 @@
 (ad-activate 'ansi-term)
 (global-set-key (kbd "<s-return>") 'ansi-term)
 
+(use-package better-shell
+    :ensure t
+    :bind (("C-'" . better-shell-shell)
+           ("C-;" . better-shell-remote-open)))
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (setq org-src-window-setup 'current-window)
@@ -44,6 +49,9 @@
 (when window-system (global-hl-line-mode t))
 
 (tool-bar-mode -1)
+
+(setq-default org-display-custom-times t)
+(setq org-time-stamp-custom-formats '("<%a %e %b %Y>" . "<%a %e %b %Y %H:%M>"))
 
 (use-package swiper
   :ensure t
@@ -105,7 +113,7 @@
 (use-package avy
   :ensure t
   :bind
-  ("M-s" . avy-goto-char))
+  ("s-s" . avy-goto-char))
 
 (defun config-visit ()
   (interactive)
