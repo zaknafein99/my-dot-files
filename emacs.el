@@ -126,10 +126,10 @@
   :ensure t
   :init (rainbow-mode 1))
 
-(use-package rainbow-delimiters
-  :ensure t
-  :init
-  (rainbow-delimiters-mode 1))
+  (use-package rainbow-delimiters
+    :ensure t
+    :init
+    (rainbow-delimiters-mode 1))
 
 (use-package dashboard
   :ensure t
@@ -208,3 +208,26 @@
   :ensure t
   :bind
   ("s-h" . symon-mode))
+
+(setq org-publish-project-alist
+      '(("org-notes"
+         :base-directory "~/org/"
+         :publishing-directory "~/public_html/"
+         :publishing-function org-twbs-publish-to-html
+         :with-sub-superscript nil
+         )))
+
+
+(defun my-org-publish-buffer ()
+  (interactive)
+  (save-buffer)
+  (save-excursion (org-publish-current-file))
+  (let* ((proj (org-publish-get-project-from-filename buffer-file-name))
+         (proj-plist (cdr proj))
+         (rel (file-relative-name buffer-file-name
+                                  (plist-get proj-plist :base-directory)))
+         (dest (plist-get proj-plist :publishing-directory)))
+    (browse-url (concat "file://"
+                        (file-name-as-directory (expand-file-name dest))
+                        (file-name-sans-extension rel)
+                        ".html"))))
