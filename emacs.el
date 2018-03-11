@@ -234,3 +234,7 @@
                         (file-name-as-directory (expand-file-name dest))
                         (file-name-sans-extension rel)
                         ".html"))))
+
+(use-package popup-kill-ring
+  :ensure t
+  :bind ("M-y" . popup-kill-ring))

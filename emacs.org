@@ -342,3 +342,9 @@
                         (file-name-sans-extension rel)
                         ".html"))))
 #+END_SRC
+* Killring Menu
+#+BEGIN_SRC emacs-lisp
+  (use-package popup-kill-ring
+    :ensure t
+    :bind ("M-y" . popup-kill-ring))
+#+END_SRC
