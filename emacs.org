@@ -89,6 +89,11 @@
 #+BEGIN_SRC emacs-lisp
 (tool-bar-mode -1)
 #+END_SRC
+** Formato de fecha
+#+BEGIN_SRC emacs-lisp
+(setq-default org-display-custom-times t)
+(setq org-time-stamp-custom-formats '("<%a %e %b %Y>" . "<%a %e %b %Y %H:%M>"))
+#+END_SRC
 * Packages
 ** swiper
 #+BEGIN_SRC emacs-lisp

@@ -50,6 +50,9 @@
 
 (tool-bar-mode -1)
 
+(setq-default org-display-custom-times t)
+(setq org-time-stamp-custom-formats '("<%a %e %b %Y>" . "<%a %e %b %Y %H:%M>"))
+
 (use-package swiper
   :ensure t
   :config (global-set-key "\C-s" 'swiper))
