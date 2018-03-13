@@ -235,5 +235,11 @@
                         (file-name-sans-extension rel)
                         ".html"))))
 
+<<<<<<< HEAD
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+=======
+(use-package popup-kill-ring
+  :ensure t
+  :bind ("M-y" . popup-kill-ring))
+>>>>>>> 8bca5bff55a0cf031dcc81fdfb84ea8afdc3e1b3
