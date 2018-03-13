@@ -342,3 +342,8 @@
                         (file-name-sans-extension rel)
                         ".html"))))
 #+END_SRC
+* Emmet support
+#+BEGIN_SRC emacs-lisp
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+#+END_SRC

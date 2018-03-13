@@ -43,8 +43,8 @@ mkdir 22
 rename Stargate Origins
 search leg
 search si
-delete
 search us
 search run
 open_with º
 open_with emacs
+delete
