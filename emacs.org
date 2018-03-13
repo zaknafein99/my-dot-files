@@ -94,6 +94,14 @@
 (setq-default org-display-custom-times t)
 (setq org-time-stamp-custom-formats '("<%a %e %b %Y>" . "<%a %e %b %Y %H:%M>"))
 #+END_SRC
+** Abrir archivo como root si es necesario
+#+BEGIN_SRC emacs-lisp
+(defadvice ido-find-file (after find-file-sudo activate)
+  "Find file as root if necessary."
+  (unless (and buffer-file-name
+               (file-writable-p buffer-file-name))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+#+END_SRC
 * Packages
 ** swiper
 #+BEGIN_SRC emacs-lisp
@@ -119,10 +127,10 @@
 #+END_SRC
 ** evil-mode
 #+BEGIN_SRC emacs-lisp
-  ;;(add-to-list 'load-path "~/.emacs.d/evil")
-  ;;(require 'evil)
-  ;;(Evil-mode 1)
-  ;; (require 'colemak-evil)
+  (add-to-list 'load-path "~/.emacs.d/evil")
+  (require 'evil)
+  (evil-mode 1)
+ ;;(require 'colemak-evil)
 #+END_SRC
 ** linum-mode
 #+BEGIN_SRC emacs-lisp
@@ -347,11 +355,11 @@
 #+BEGIN_SRC emacs-lisp
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-=======
+#+END_SRC
 * Killring Menu
 #+BEGIN_SRC emacs-lisp
   (use-package popup-kill-ring
     :ensure t
     :bind ("M-y" . popup-kill-ring))
->>>>>>> 8bca5bff55a0cf031dcc81fdfb84ea8afdc3e1b3
 #+END_SRC
+

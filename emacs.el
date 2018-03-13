@@ -53,6 +53,12 @@
 (setq-default org-display-custom-times t)
 (setq org-time-stamp-custom-formats '("<%a %e %b %Y>" . "<%a %e %b %Y %H:%M>"))
 
+(defadvice ido-find-file (after find-file-sudo activate)
+  "Find file as root if necessary."
+  (unless (and buffer-file-name
+               (file-writable-p buffer-file-name))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
 (use-package swiper
   :ensure t
   :config (global-set-key "\C-s" 'swiper))
@@ -62,10 +68,10 @@
   :init
   (beacon-mode 1))
 
-;;(add-to-list 'load-path "~/.emacs.d/evil")
-;;(require 'evil)
-;;(Evil-mode 1)
-;; (require 'colemak-evil)
+(add-to-list 'load-path "~/.emacs.d/evil")
+ (require 'evil)
+ (evil-mode 1)
+;;(require 'colemak-evil)
 
 (use-package nlinum-relative
     :config
@@ -235,11 +241,9 @@
                         (file-name-sans-extension rel)
                         ".html"))))
 
-<<<<<<< HEAD
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-=======
+
 (use-package popup-kill-ring
   :ensure t
   :bind ("M-y" . popup-kill-ring))
->>>>>>> 8bca5bff55a0cf031dcc81fdfb84ea8afdc3e1b3
