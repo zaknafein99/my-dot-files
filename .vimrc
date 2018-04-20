@@ -8,7 +8,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/tComment'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
