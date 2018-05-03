@@ -68,19 +68,23 @@
   :init
   (beacon-mode 1))
 
-(add-to-list 'load-path "~/.emacs.d/evil")
- (require 'evil)
- (evil-mode 1)
-;;(require 'colemak-evil)
+(use-package evil
+:ensure t)
+
+  (add-to-list 'load-path "~/.emacs.d/evil")
+  (require 'evil)
+  (evil-mode 1)
+ ;;(require 'colemak-evil)
 
 (use-package nlinum-relative
-    :config
+:ensure t    
+:config
     ;; something else you want
-    ;;(nlinum-relative-setup-evil)
+    (nlinum-relative-setup-evil)
     (add-hook 'prog-mode-hook 'nlinum-relative-mode))
 
 (require 'nlinum-relative)
-;;(nlinum-relative-setup-evil)                    ;; setup for evil
+(nlinum-relative-setup-evil)                    ;; setup for evil
 (add-hook 'prog-mode-hook 'nlinum-relative-mode)
 (setq nlinum-relative-redisplay-delay 0)      ;; delay
 (setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
@@ -91,6 +95,7 @@
   :bind("s-e" . sudo-edit))
 
 (use-package ranger
+:ensure t
 )
 
 (setq ido-enable-flex-matching nil)
@@ -173,13 +178,19 @@
   (other-window 1))
 (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
 
+(use-package js2-mode
+:ensure t)
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; Better imenu
 (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
 
+(use-package js2-refactor
+:ensure t)
 (require 'js2-refactor)
+(use-package xref-js2
+:ensure t)
 (require 'xref-js2)
 
 (add-hook 'js2-mode-hook #'js2-refactor-mode)

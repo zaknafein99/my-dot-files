@@ -226,7 +226,7 @@
 * rainbow
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-mode
-    :ensure t
+    :Ensure t
     :init (rainbow-mode 1))
 
     (use-package rainbow-delimiters

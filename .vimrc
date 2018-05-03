@@ -2,37 +2,32 @@ set nocompatible
 set clipboard=unnamed
 set number
 set relativenumber
+let mapleader = " "
+
 "==PLUGINS==
-"
+
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'altercation/vim-colors-solarized'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/tComment'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'Townk/vim-autoclose'
-Plug 'vim-syntastic/syntastic'
-Plug 'Quramy/tsuquyomi'
+" Plug 'vim-syntastic/syntastic'
+" Plug 'Quramy/tsuquyomi'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
-"Plug 'hallettj/jslint.vim'
 Plug 'ternjs/tern_for_vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-vinegar'
 
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 call plug#end()
 "==PLUGIN CONFIG==
 set statusline+=%#warningmsg#
@@ -69,8 +64,8 @@ set conceallevel=1
 
 
 syntax enable
-set background=dark  
-colorscheme solarized
+" set background=dark  
+" colorscheme solarized
 let g:one_allow_italics = 1
 highlight Comment gui=italic
 highlight Comment cterm=italic
@@ -98,40 +93,22 @@ inoremap <silent> <ESC>OD <LEFT>
 
 " In many terminal emulators the mouse works just fine, thus enable it.             
 "if has('mouse')                                                                     
-	set mouse=a
-"endif                                                                               
-                                                                                    
-" If linux then set ttymouse                                                        
-"let s:uname = system("echo -n \"$(uname)\"")                                        
-"if !v:shell_error && s:uname == "Linux" && !has('vim')                             
-"	set ttymouse=xterm
-"endif  
-
-
-
-"PLUGIN CONFIG
-"==================== NerdTree ====================                                 
-" For toggling                                                                      
-nmap <C-n> :NERDTreeToggle<CR>                                                      
-noremap <Leader>n :NERDTreeToggle<cr>                                               
-noremap <Leader>f :NERDTreeFind<cr>                                                 
-let  NERDTreeShowHidden=1                                                            
-let NERDTreeIgnore=['\.vim$', '\~$', '\.git$', '.DS_Store']                         
-
-" Close nerdtree and vim on close file                                              
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif    
+set mouse=a
 
                                                                              
+"==================== Netrw File Browser ====================                                 
+let g:netrw_banner=0		"disable top banner"
+let g:netrw_browse_split=4	"open in prior window"
+let g:netrw_altv=1		"open splits to the right"
+let g:netrw_liststyle=3		"tree view"
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
 " =================== vim-airline ========================                          
                                                                                     
-let g:airline_theme='solarized'
+let g:airline_theme='luna'
 let g:airline_solarized_bg='dark'
-" set to use powerline fonts when not in a ssh session
-let g:remoteSession = ($STY == "")                                                  
-if !g:remoteSession 
-	let g:airline_powerline_fonts=1
-endif                                                                               
-" vim:ts=2:sw=2:et
+let g:airline_powerline_fonts=1
 
 let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
 let $JS_CMD='node'
