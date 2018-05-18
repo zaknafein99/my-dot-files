@@ -1,20 +1,27 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/isma/.dotfiles/zsh
-
-alias ls='ls --color=auto'
-alias vim='nvim'
-#LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
-#export LS_COLORS
-
+  export TERM="xterm-256color"
+  export ZSH=/home/isma/.oh-my-zsh
+  export VISUAL="vim"
+  export XDG_RUNTIME_DIR=/home/isma/.veyon
+  export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+  export export GEM_HOME=$HOME/.gem
+  export LD_LIBRARY_PATH=/usr/local/lib
+  export EDITOR="vim"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
- ZSH_THEME="robbyrussell"
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -57,11 +64,32 @@ alias vim='nvim'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  compleat
+  chucknorris
+  common-aliases
+  history
+  colored-man-pages
+  lol
+  nyan
+  sudo
+  systemd
+  tmux
+)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # User configuration
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON=' '
+POWERLEVEL9K_HOME_ICON=' '
+POWERLEVEL9K_HOME_SUB_ICON=' '
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -87,5 +115,56 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias less='/usr/share/vim/vim80/macros/less.sh'
+alias mkdir='mkdir -p -v'
+alias nodejs='node'
+alias vimconfig="vim ~/.vimrc"
+
+export tNVM_DIR="$HOME/.nvm"
+export ICON_HDD="$(echo -e "\uF0A0")"
+
+# locales
+
+export LANG=es_ES.UTF-8
+export LC_CTYPE="es_ES.UTF-8"
+export LC_NUMERIC="es_ES.UTF-8"
+export LC_TIME="es_ES.UTF-8"
+export LC_COLLATE="es_ES.UTF-8"
+export LC_MONETARY="es_ES.UTF-8"
+export LC_MESSAGES="es_ES.UTF-8"
+export LC_PAPER="es_ES.UTF-8"
+export LC_NAME="es_ES.UTF-8"
+export LC_ADDRESS="es_ES.UTF-8"
+export LC_TELEPHONE="es_ES.UTF-8"
+export LC_MEASUREMENT="es_ES.UTF-8"
+export LC_IDENTIFICATION="es_ES.UTF-8"
+export LC_ALL=es_ES.UTF-8
+
+make50() {
+	    echo "gcc -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1";
+	        gcc -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1 ;
+
+}
+ 
+check50() {
+	    nodejs /opt/check50/bin/check50.js ${1} ${2};
+
+}
+ 
+maker() {
+	    echo "clang -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1";
+	        clang -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1 ;
+
+}
+alias make50=make50
+alias maker=maker
+alias check50=check50
+
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+chuck_cow
