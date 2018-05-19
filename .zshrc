@@ -2,14 +2,17 @@
 
 
 # Path to your oh-my-zsh installation.
-  export TERM="xterm-256color"
+  if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+
+  # export TERM="xterm-256color"
   export ZSH=/home/isma/.oh-my-zsh
-  export VISUAL="vim"
+  export VISUAL="nvim"
   export XDG_RUNTIME_DIR=/home/isma/.veyon
   export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
   export export GEM_HOME=$HOME/.gem
   export LD_LIBRARY_PATH=/usr/local/lib
-  export EDITOR="vim"
+  export EDITOR="nvim"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -66,20 +69,24 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  compleat
   chucknorris
   common-aliases
   history
   colored-man-pages
-  lol
-  nyan
   sudo
   systemd
   tmux
+  cp
 )
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Compleat
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
+
 
 # User configuration
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -121,6 +128,7 @@ alias less='/usr/share/vim/vim80/macros/less.sh'
 alias mkdir='mkdir -p -v'
 alias nodejs='node'
 alias vimconfig="vim ~/.vimrc"
+alias vim='nvim'
 
 export tNVM_DIR="$HOME/.nvm"
 export ICON_HDD="$(echo -e "\uF0A0")"
