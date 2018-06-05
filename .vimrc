@@ -8,6 +8,7 @@ let mapleader = " "
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'altercation/vim-colors-solarized'
+Plug 'aradunovic/perun.vim'
 " Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 " Plug 'Valloric/YouCompleteMe'
@@ -106,7 +107,9 @@ let g:netrw_liststyle=3		"tree view"
 " let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 " =================== vim-airline ========================                          
-                                                                                    
+
+colorscheme one-dark
+
 let g:airline_theme='luna'
 let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts=1
