@@ -8,7 +8,9 @@ let mapleader = " "
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'altercation/vim-colors-solarized'
-" Plug 'scrooloose/nerdtree'
+Plug 'aradunovic/perun.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mattn/emmet-vim'
 " Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/tComment'
@@ -17,8 +19,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'Townk/vim-autoclose'
-" Plug 'vim-syntastic/syntastic'
-" Plug 'Quramy/tsuquyomi'
+Plug 'vim-syntastic/syntastic'
+Plug 'Quramy/tsuquyomi'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -42,6 +44,19 @@ let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 "==VIM-JAVASCRIPT==
 let g:javascript_plugin_jsdoc=1
@@ -108,8 +123,13 @@ let g:netrw_liststyle=3		"tree view"
 " =================== vim-airline ========================                          
                                                                                     
 let g:airline_theme='luna'
-let g:airline_solarized_bg='dark'
+" let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts=1
+
+colorscheme perun
+
+" neovim
+set termguicolors
 
 let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
 let $JS_CMD='node'
