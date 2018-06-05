@@ -1,19 +1,29 @@
 # If you come from bash you might have to change your $PATH.
 
+# Setting Bash prompt. Capitalizes username and host if root user (my root user uses this same config file).
+# if [ "$EUID" -ne 0 ]
+# 	then export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+# 	else export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]ROOT\[$(tput setaf 2)\]@\[$(tput setaf 4)\]$(hostname | awk '{print toupper($0)}') \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+# fi
+
 
 # Path to your oh-my-zsh installation.
-  export TERM="xterm-256color"
+  if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+
+  # export TERM="xterm-256color"
   export ZSH=/home/isma/.oh-my-zsh
-  export VISUAL="vim"
+  export VISUAL="nvim"
   export XDG_RUNTIME_DIR=/home/isma/.veyon
   export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
   export export GEM_HOME=$HOME/.gem
   export LD_LIBRARY_PATH=/usr/local/lib
-  export EDITOR="vim"
+  export EDITOR="nvim"
+  export TR_AUTH="isma:1"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="mytheme"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -66,20 +76,24 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  compleat
   chucknorris
-  common-aliases
+  # common-aliases
   history
   colored-man-pages
-  lol
-  nyan
   sudo
   systemd
   tmux
+  cp
 )
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Compleat
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
+
 
 # User configuration
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -121,6 +135,7 @@ alias less='/usr/share/vim/vim80/macros/less.sh'
 alias mkdir='mkdir -p -v'
 alias nodejs='node'
 alias vimconfig="vim ~/.vimrc"
+alias vim='nvim'
 
 export tNVM_DIR="$HOME/.nvm"
 export ICON_HDD="$(echo -e "\uF0A0")"
@@ -142,25 +157,25 @@ export LC_MEASUREMENT="es_ES.UTF-8"
 export LC_IDENTIFICATION="es_ES.UTF-8"
 export LC_ALL=es_ES.UTF-8
 
-make50() {
-	    echo "gcc -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1";
-	        gcc -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1 ;
-
-}
- 
-check50() {
-	    nodejs /opt/check50/bin/check50.js ${1} ${2};
-
-}
- 
-maker() {
-	    echo "clang -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1";
-	        clang -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1 ;
-
-}
-alias make50=make50
-alias maker=maker
-alias check50=check50
+# make50() {
+# 	    echo "gcc -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1";
+# 	        gcc -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1 ;
+#
+# }
+#  
+# check50() {
+# 	    nodejs /opt/check50/bin/check50.js ${1} ${2};
+#
+# }
+#  
+# maker() {
+# 	    echo "clang -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1";
+# 	        clang -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1 ;
+#
+# }
+# alias make50=make50
+# alias maker=maker
+# alias check50=check50
 
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
