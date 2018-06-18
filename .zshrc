@@ -176,4 +176,5 @@ export LC_ALL=es_ES.UTF-8
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-chuck_cow
+fortune | cowsay
+# chuck_cow
