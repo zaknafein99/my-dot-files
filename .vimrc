@@ -9,12 +9,9 @@ let mapleader = " "
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'aradunovic/perun.vim'
-<<<<<<< HEAD
 " Plug 'scrooloose/nerdtree'
-=======
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
->>>>>>> dd3dc3db703b4f2389f88696032d3328db781f5e
 Plug 'mattn/emmet-vim'
 " Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/tComment'
@@ -126,16 +123,16 @@ let g:netrw_liststyle=3		"tree view"
 
 " =================== vim-airline ========================                          
 
-colorscheme one-dark
+" colorscheme one-dark
 
 let g:airline_theme='luna'
 " let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts=1
 
-colorscheme perun
+" colorscheme perun
 
 " neovim
-set termguicolors
+" set termguicolors
 
 let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
 let $JS_CMD='node'
