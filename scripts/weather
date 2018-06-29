@@ -1,0 +1,2 @@
+
+cat ~/.weatherreport | sed -n 13p | sed -e 's/[^m]*m//g;s/[^0-9]/ /g;s/ /\n/g;/^s*$/d' | grep [0-9] | sort -n | sed -e 1b -e '$!d' | tr '\n' ' ' | awk '{print " ❄️",$1 "°","☀️",$2 "°"}'

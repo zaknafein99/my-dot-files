@@ -1,4 +1,3 @@
-
 (defvar my-term-shell "/bin/zsh")
 (defadvice ansi-term (before force-bash)
   (interactive (list my-term-shell)))
