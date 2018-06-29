@@ -6,12 +6,12 @@
   # export TERM="xterm-256color"
   # export ZSH=/home/isma/.oh-my-zsh
   export ZSH=~/.oh-my-zsh
-  export VISUAL="nvim"
+  export VISUAL="vim"
   export XDG_RUNTIME_DIR=/home/isma/.veyon
   export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
   export export GEM_HOME=$HOME/.gem
   export LD_LIBRARY_PATH=/usr/local/lib
-  export EDITOR="nvim"
+  export EDITOR="vim"
   export TR_AUTH="isma:1"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -129,7 +129,7 @@ alias less='/usr/share/vim/vim80/macros/less.sh'
 alias mkdir='mkdir -p -v'
 alias nodejs='node'
 alias vimconfig="vim ~/.vimrc"
-alias vim='nvim'
+# alias vim='nvim'
 
 export tNVM_DIR="$HOME/.nvm"
 export ICON_HDD="$(echo -e "\uF0A0")"
@@ -151,30 +151,89 @@ export LC_MEASUREMENT="es_ES.UTF-8"
 export LC_IDENTIFICATION="es_ES.UTF-8"
 export LC_ALL=es_ES.UTF-8
 
-# make50() {
-# 	    echo "gcc -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1";
-# 	        gcc -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1 ;
-#
-# }
-#  
-# check50() {
-# 	    nodejs /opt/check50/bin/check50.js ${1} ${2};
-#
-# }
-#  
-# maker() {
-# 	    echo "clang -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1";
-# 	        clang -ggdb -std=c99 -Wall -Werror ${1}.c -lcrypt -lcs50 -lm -o $1 ;
-#
-# }
-# alias make50=make50
-# alias maker=maker
-# alias check50=check50
-
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 fortune | cowsay
-# chuck_cow
+
+#Generic shortcuts:
+alias music="ncmpcpp"
+alias clock="ncmpcpp -s clock"
+alias visualizer="ncmpcpp -s visualizer"
+alias news="newsboat"
+alias email="neomutt"
+alias files="ranger"
+alias chat="weechat"
+alias audio="ncpamixer"
+alias calender="calcurse"
+
+# System Maintainence
+alias mw="~/.config/mutt/mutt-wizard.sh"
+alias muttwizard="~/.config/mutt/mutt-wizard.sh"
+alias progs="(pacman -Qet && pacman -Qm) | sort -u" # List programs I've installed
+alias orphans="pacman -Qdt" # List orphan programs
+alias upgr="notify-send -i ~/.scripts/larbs.png 'Upgrade started' & neofetch && sudo packer -Syyuv --noconfirm && notify-send -i ~/.scripts/larbs.png 'Upgrade complete'."
+alias atltime="sudo timedatectl set-timezone America/New_York && i3 restart" # Eastcoast time
+alias tuctime="sudo timedatectl set-timezone America/Phoenix && i3 restart" # Arizona time
+alias sdn="sudo shutdown now"
+alias newnet="sudo systemctl restart NetworkManager" # Refresh wifi
+alias nf="clear && neofetch" # Le Redditfetch
+#Install an AUR package manually (for Parabola to get AUR access):
+aurinstall() { curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/$1.tar.gz && tar -xvf $1.tar.gz && cd $1 && makepkg --noconfirm -si && cd .. && rm -rf $1 $1.tar.gz ;}
+alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
+
+# Some aliases
+alias p="sudo pacman"
+alias SS="sudo systemctl"
+alias v="vim"
+alias sv="sudo vim"
+alias r="ranger"
+alias sr="sudo ranger"
+alias ka="killall"
+alias g="git"
+alias gitup="git push origin master"
+alias trem="transmission-remote"
+alias mkd="mkdir -pv"
+alias rf="source ~/.bashrc"
+alias ref="shortcuts.sh && source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
+alias bars="bash ~/.config/polybar/launch.sh" # Run Polybar relaunch script
+alias bw="wal -i ~/.config/wall.png" # Rerun pywal
+weath() { curl wttr.in/$1 ;} # Check the weather (give city or leave blank).
+
+# Adding color
+alias ls='ls -hN --color=auto --group-directories-first'
+alias crep="grep --color=always" # Color grep - highlight desired sequence.
+alias ccat="highlight --out-format=xterm256" #Color cat - print file with syntax highlighting.
+
+# Internet
+alias yt="youtube-dl --add-metadata -ic" # Download video link
+alias yta="youtube-dl --add-metadata -xic" # Download only audio
+alias YT="youtube-viewer"
+alias ethspeed="speedometer -r enp0s25"
+alias wifispeed="speedometer -r wlp3s0"
+alias starwars="telnet towel.blinkenlights.nl"
+alias tpbs="clear && figlet -c TPB Search && .scripts/tpb.sh" # Pirate Bay search
+
+# TeX
+alias Txa="cp ~/Documents/LaTeX/article.tex"
+alias Txs="cp ~/Documents/LaTeX/beamer.tex"
+alias Txh="cp ~/Documents/LaTeX/handout.tex"
+alias TC='texclear'
+
+# Audio and Music
+alias mute="pamixer -m"
+alias unmute="pamixer -u"
+alias vu="pamixer --allow-boost -i 5"
+alias vd="pamixer --allow-boost -d 5"
+alias pause="mpc toggle"
+alias next="mpc next"
+alias prev="mpc prev"
+alias trupause="mpc pause"
+alias beg="mpc seek 0%"
+alias lilbak="mpc seek -10"
+alias lilfor="mpc seek +10"
+alias bigbak="mpc seek -120"
+alias bigfor="mpc seek +120"
+
+hello-larbs() { sed -i -e '/larbs.png/,$d' ~/.config/i3/config ;}
+source ~/.bash_shortcuts
+source /home/isma/.bash_shortcuts
