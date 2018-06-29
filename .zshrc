@@ -3,16 +3,19 @@
 # Path to your oh-my-zsh installation.
   if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
-  # export TERM="xterm-256color"
-  # export ZSH=/home/isma/.oh-my-zsh
-  export ZSH=~/.oh-my-zsh
-  export VISUAL="vim"
-  export XDG_RUNTIME_DIR=/home/isma/.veyon
-  export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
-  export export GEM_HOME=$HOME/.gem
-  export LD_LIBRARY_PATH=/usr/local/lib
-  export EDITOR="vim"
-  export TR_AUTH="isma:1"
+# export TERM="xterm-256color"
+# export ZSH=/home/isma/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
+export VISUAL="vim"
+export XDG_RUNTIME_DIR=/home/isma/.veyon
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export export GEM_HOME=$HOME/.gem
+export LD_LIBRARY_PATH=/usr/local/lib
+export TR_AUTH="isma:1"
+export PATH=$PATH:$HOME/.scripts
+export EDITOR="vim"
+export TERMINAL="st"
+export BROWSER="qutebrowser"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
