@@ -58,6 +58,8 @@
                (file-writable-p buffer-file-name))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
+(menu-bar-mode -1)
+
 (use-package swiper
   :ensure t
   :config (global-set-key "\C-s" 'swiper))
@@ -98,8 +100,9 @@
 (nlinum-relative-setup-evil)                    ;; setup for evil
 (add-hook 'prog-mode-hook 'nlinum-relative-mode)
 (setq nlinum-relative-redisplay-delay 0)      ;; delay
-(setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
+(setq nlinum-relative-current-symbol "")      ;; or "" for display current line number
 (setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
+(nlinum-relative-on)
 
 (use-package sudo-edit
   :ensure t
@@ -108,9 +111,6 @@
 (use-package ranger
 :ensure t
 )
-
-(use-package magit
-:ensure t)
 
 (setq ido-enable-flex-matching nil)
 (setq ido-create-new-buffer 'always)

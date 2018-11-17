@@ -32,17 +32,3 @@
     (evil-leader markdown-mode auctex rainbow-mode rainbow org-bullets beacon spacemacs-theme which-key use-package undo-tree solarized-theme neotree magit linum-relative js2-mode highlight-numbers highlight-escape-sequences goto-chg avy ample-theme)))
  '(spacemacs-theme-comment-italic t)
  '(tool-bar-mode nil))
-
-;;(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-;; '(font-lock-comment-face ((t (:foreground "chocolate1" :slant italic :family "Operator Mono Book"))))
-;; '(font-lock-variable-name-face ((t (:foreground "LightGoldenrod" :slant italic :family "Operator Mono Book")))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "UbuntuMono Nerd Font" :foundry "DAMA" :slant normal :weight normal :height 143 :width normal)))))
