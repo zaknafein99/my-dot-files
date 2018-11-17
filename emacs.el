@@ -73,6 +73,18 @@
   (add-to-list 'load-path "~/.emacs.d/evil")
   (require 'evil)
   (evil-mode 1)
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+  
+  (use-package evil-leader
+    :ensure t
+    :config
+    (global-evil-leader-mode))
+    
+  (use-package evil-indent-textobject
+    :ensure t)
  ;;(require 'colemak-evil)
 
 (use-package nlinum-relative
@@ -96,6 +108,9 @@
 (use-package ranger
 :ensure t
 )
+
+(use-package magit
+:ensure t)
 
 (setq ido-enable-flex-matching nil)
 (setq ido-create-new-buffer 'always)
@@ -123,7 +138,7 @@
 (use-package avy
   :ensure t
   :bind
-  ("s-s" . avy-goto-char))
+  ("s-c" . avy-goto-char))
 
 (defun config-visit ()
   (interactive)
@@ -257,3 +272,8 @@
 (use-package popup-kill-ring
   :ensure t
   :bind ("M-y" . popup-kill-ring))
+
+(use-package markdown-mode
+  :ensure t)
+
+(server-start)
