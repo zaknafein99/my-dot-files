@@ -133,8 +133,23 @@
   (add-to-list 'load-path "~/.emacs.d/evil")
   (require 'evil)
   (evil-mode 1)
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+  
+  (use-package evil-leader
+    :ensure t
+    :config
+    (global-evil-leader-mode))
+    
+  (use-package evil-indent-textobject
+    :ensure t)
  ;;(require 'colemak-evil)
 #+END_SRC
+
+#+RESULTS:
+
 ** linum-mode
 #+BEGIN_SRC emacs-lisp
 
@@ -374,3 +389,12 @@
     :bind ("M-y" . popup-kill-ring))
 #+END_SRC
 
+* Markdown
+#+BEGIN_SRC emacs-lisp
+(use-package markdown-mode
+  :ensure t)
+#+END_SRC
+* Start emacs server (because of reasons)
+#+BEGIN_SRC emacs-lisp
+    (server-start)
+#+END_SRC

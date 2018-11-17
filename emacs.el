@@ -73,6 +73,18 @@
   (add-to-list 'load-path "~/.emacs.d/evil")
   (require 'evil)
   (evil-mode 1)
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+  
+  (use-package evil-leader
+    :ensure t
+    :config
+    (global-evil-leader-mode))
+    
+  (use-package evil-indent-textobject
+    :ensure t)
  ;;(require 'colemak-evil)
 
 (use-package nlinum-relative
@@ -257,3 +269,8 @@
 (use-package popup-kill-ring
   :ensure t
   :bind ("M-y" . popup-kill-ring))
+
+(use-package markdown-mode
+  :ensure t)
+
+(server-start)

@@ -15,7 +15,7 @@ export TR_AUTH="isma:1"
 export PATH=$PATH:$HOME/.scripts
 export EDITOR="vim"
 export TERMINAL="st"
-export BROWSER="qutebrowser"
+export BROWSER="firefox"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -128,7 +128,7 @@ POWERLEVEL9K_HOME_SUB_ICON=' '
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-alias less='/usr/share/vim/vim80/macros/less.sh'
+#alias cless='/usr/share/vim/vim80/macros/less.sh'
 alias mkdir='mkdir -p -v'
 alias nodejs='node'
 alias vimconfig="vim ~/.vimrc"
@@ -156,7 +156,7 @@ export LC_ALL=es_ES.UTF-8
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-fortune | cowsay
+#fortune | cowsay
 
 #Generic shortcuts:
 alias music="ncmpcpp"
@@ -186,6 +186,7 @@ alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
 
 # Some aliases
 alias p="sudo pacman"
+alias sysupdate="yay -Syu"
 alias SS="sudo systemctl"
 alias v="vim"
 alias sv="sudo vim"
@@ -197,10 +198,15 @@ alias gitup="git push origin master"
 alias trem="transmission-remote"
 alias mkd="mkdir -pv"
 alias rf="source ~/.bashrc"
-alias ref="shortcuts.sh && source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
+alias ref="shortcuts.sh && source ~/.zshrc" # Refresh shortcuts manually and reload bashrc
 alias bars="bash ~/.config/polybar/launch.sh" # Run Polybar relaunch script
 alias bw="wal -i ~/.config/wall.png" # Rerun pywal
 weath() { curl wttr.in/$1 ;} # Check the weather (give city or leave blank).
+alias mv="mv -i"
+alias mv="cp -i"
+alias mv="rm -i"
+
+
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
@@ -238,5 +244,7 @@ alias bigbak="mpc seek -120"
 alias bigfor="mpc seek +120"
 
 hello-larbs() { sed -i -e '/larbs.png/,$d' ~/.config/i3/config ;}
-source ~/.bash_shortcuts
-source /home/isma/.bash_shortcuts
+# source ~/.bash_shortcuts
+# source /home/isma/.bash_shortcuts
+
+# wal -i .config/wall.png -c -q
