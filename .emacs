@@ -32,3 +32,11 @@
     (evil-leader markdown-mode auctex rainbow-mode rainbow org-bullets beacon spacemacs-theme which-key use-package undo-tree solarized-theme neotree magit linum-relative js2-mode highlight-numbers highlight-escape-sequences goto-chg avy ample-theme)))
  '(spacemacs-theme-comment-italic t)
  '(tool-bar-mode nil))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(font-lock-comment-face ((t (:background "#292e34" :foreground "#2aa1ae" :slant italic))))
+ '(hl-line ((t (:background "#212026")))))
