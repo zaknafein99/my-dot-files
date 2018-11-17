@@ -103,6 +103,7 @@
 (setq nlinum-relative-current-symbol "")      ;; or "" for display current line number
 (setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
 (nlinum-relative-on)
+(global-nlinum-relative-mode)
 
 (use-package sudo-edit
   :ensure t
