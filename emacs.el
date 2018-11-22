@@ -1,4 +1,4 @@
-(defvar my-term-shell "/bin/zsh")
+(defvar my-term-shell "/bin/bash")
 (defadvice ansi-term (before force-bash)
   (interactive (list my-term-shell)))
 
@@ -70,11 +70,13 @@
   (beacon-mode 1))
 
 (use-package evil
-:ensure t)
+:ensure t
+:config)
 
   (add-to-list 'load-path "~/.emacs.d/evil")
   (require 'evil)
   (evil-mode 1)
+
 (use-package evil-surround
   :ensure t
   :config
@@ -87,7 +89,7 @@
     
   (use-package evil-indent-textobject
     :ensure t)
- ;;(require 'colemak-evil)
+;; (require 'colemak-evil)
 
 (use-package nlinum-relative
 :ensure t    
@@ -103,7 +105,7 @@
 (setq nlinum-relative-current-symbol "")      ;; or "" for display current line number
 (setq nlinum-relative-offset 0)                 ;; 1 if you want 0, 2, 3...
 (nlinum-relative-on)
-(global-nlinum-relative-mode)
+(global-nlinum-mode)
 
 (use-package sudo-edit
   :ensure t
@@ -139,12 +141,22 @@
 (use-package avy
   :ensure t
   :bind
-  ("s-c" . avy-goto-char))
+  ("M-s" . avy-goto-char))
 
 (defun config-visit ()
   (interactive)
   (find-file "~/my-dot-files/emacs.org"))
 (global-set-key (kbd "C-c e") 'config-visit)
+
+(defun config-i3()
+(interactive)
+(find-file "~/.config/i3/config"))
+(global-set-key (kbd "C-c i") 'config-i3)
+
+(defun config-i3()
+(interactive)
+(find-file "~/.bashrc"))
+(global-set-key (kbd "C-c b") 'config-i3)
 
 (defun config-reload()
   (interactive)
@@ -278,3 +290,5 @@
   :ensure t)
 
 (server-start)
+
+(desktop-save-mode 1)
