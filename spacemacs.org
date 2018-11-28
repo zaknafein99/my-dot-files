@@ -1,0 +1,56 @@
+* Spacemacs user-config
+** Subdirectory to execute custom packages 
+   #+BEGIN_SRC emacs-lisp
+  ;; Tell emacs where is your personal elisp lib dir
+  (add-to-list 'load-path "~/.emacs.d/lisp/")
+
+  ;; load the packaged named xyz.
+  ;; (load "xyz") ;; best not to include the ending “.el” or “.elc”
+   #+END_SRC
+** template to insert elisp code
+   #+BEGIN_SRC emacs-lisp 
+  (setq org-src-window-setup 'current-window)
+  (add-to-list 'org-structure-template-alist
+               '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
+   #+END_SRC
+** Edit config files key bindings
+#+BEGIN_SRC emacs-lisp
+  (defun config-i3()
+    (interactive)
+    (find-file "~/.config/i3/config"))
+  (global-set-key (kbd "C-c i") 'config-i3)
+
+  (defun config-bash()
+    (interactive)
+    (find-file "~/.bashrc"))
+  (global-set-key (kbd "C-c b") 'config-bash)
+#+END_SRC
+
+** Highlight cursor line and beacon
+#+BEGIN_SRC emacs-lisp
+  (when window-system (global-hl-line-mode))
+  (beacon-mode 1)
+#+END_SRC
+
+** Eyebrowse for managing windows
+#+BEGIN_SRC emacs-lisp
+  (use-package eyebrowse
+    :ensure t)
+  (eyebrowse-mode t)
+#+END_SRC
+
+** Make relative line numbers global and default
+#+BEGIN_SRC emacs-lisp
+  ;; Make linums relative by default
+  ;; (with-eval-after-load 'linum
+  ;;   (linum-relative-toggle))
+
+  ;; Make linums relative by default
+  (global-linum-mode nil)
+  (linum-relative-global-mode)
+#+END_SRC
+
+** Alias list-buffer to ibuffer
+#+BEGIN_SRC emacs-lisp
+  (defalias 'list-buffers 'ibuffer) ; make ibuffer default
+#+END_SRC

@@ -314,37 +314,8 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; Tell emacs where is your personal elisp lib dir
-  (add-to-list 'load-path "~/.emacs.d/lisp/")
 
-  ;; load the packaged named xyz.
-  ;; (load "xyz") ;; best not to include the ending “.el” or “.elc”
-
-  (defun config-i3()
-    (interactive)
-    (find-file "~/.config/i3/config"))
-  (global-set-key (kbd "C-c i") 'config-i3)
-
-  (defun config-bash()
-    (interactive)
-    (find-file "~/.bashrc"))
-  (global-set-key (kbd "C-c b") 'config-bash)
-
-  (when window-system (global-hl-line-mode))
-
-  (use-package eyebrowse
-    :ensure t)
-  (eyebrowse-mode t)
-
-  (beacon-mode 1)
-
-  ;; Make linums relative by default
-  ;; (with-eval-after-load 'linum
-  ;;   (linum-relative-toggle))
-
-  ;; Make linums relative by default
-  (global-linum-mode nil)
-  (linum-relative-global-mode)
+  (org-babel-load-file (expand-file-name "~/my-dot-files/spacemacs.org"))
 
   )
 
