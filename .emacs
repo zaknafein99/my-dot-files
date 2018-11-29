@@ -30,7 +30,7 @@
  '(font-use-system-font t)
  '(package-selected-packages
    (quote
-    (evil-leader markdown-mode auctex rainbow-mode rainbow org-bullets beacon spacemacs-theme which-key use-package undo-tree solarized-theme neotree magit linum-relative js2-mode highlight-numbers highlight-escape-sequences goto-chg avy ample-theme)))
+    (aggressive-indent transmission evil-leader markdown-mode auctex rainbow-mode rainbow org-bullets beacon spacemacs-theme which-key use-package undo-tree solarized-theme neotree magit linum-relative js2-mode highlight-numbers highlight-escape-sequences goto-chg avy ample-theme)))
  '(spacemacs-theme-comment-italic t)
  '(tool-bar-mode nil))
 

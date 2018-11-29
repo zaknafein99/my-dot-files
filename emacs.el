@@ -142,12 +142,10 @@
       (quote (("default"
 	       ("dired" (mode . dired-mode))
 	       ("org" (name . "^.*org$"))
-
 	       ("config" (or
-			       (name . "^.*config$")
-			       (name . "^.*bashrc$")))
-	       
-		("web" (or (mode . web-mode) (mode . js2-mode)))
+			  (name . "^.*config$")
+			  (name . "^.*bashrc$")))
+	       ("web" (or (mode . web-mode) (mode . js2-mode)))
 	       ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
 	       ("helm" (name . "\*helm\*"))
 	       ("programming" (or
@@ -161,12 +159,8 @@
 	  (lambda ()
 	    (ibuffer-auto-mode 1)
 	    (ibuffer-switch-to-saved-filter-groups "default")))
-
-;; don't show these
-					;(add-to-list 'ibuffer-never-show-predicates "zowie")
 ;; Don't show filter groups if there are no buffers in that group
 (setq ibuffer-show-empty-filter-groups nil)
-
 ;; Don't ask for confirmation to delete marked buffers
 (setq ibuffer-expert t)
 
@@ -335,3 +329,8 @@
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
+
+(use-package aggressive-indent
+:ensure t)
+(add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+(add-hook 'css-mode-hook #'aggressive-indent-mode)
