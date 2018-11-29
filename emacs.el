@@ -117,7 +117,7 @@
 
 (setq ido-enable-flex-matching nil)
 (setq ido-create-new-buffer 'always)
-(setq ido-everywhere t)
+;;(setq ido-everywhere t)
 (ido-mode 1)
 
 (use-package ido-vertical-mode
@@ -138,6 +138,38 @@
 
 (setq ibuffer-expert t)
 
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+	       ("dired" (mode . dired-mode))
+	       ("org" (name . "^.*org$"))
+
+	       ("config" (or
+			       (name . "^.*config$")
+			       (name . "^.*bashrc$")))
+	       
+		("web" (or (mode . web-mode) (mode . js2-mode)))
+	       ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
+	       ("helm" (name . "\*helm\*"))
+	       ("programming" (or
+			       (mode . python-mode)
+			       (mode . c++-mode)))
+	       ("emacs" (or
+			 (name . "^\\*scratch\\*$")
+			 (name . "^\\*Messages\\*$")))
+	       ))))
+(add-hook 'ibuffer-mode-hook
+	  (lambda ()
+	    (ibuffer-auto-mode 1)
+	    (ibuffer-switch-to-saved-filter-groups "default")))
+
+;; don't show these
+					;(add-to-list 'ibuffer-never-show-predicates "zowie")
+;; Don't show filter groups if there are no buffers in that group
+(setq ibuffer-show-empty-filter-groups nil)
+
+;; Don't ask for confirmation to delete marked buffers
+(setq ibuffer-expert t)
+
 (use-package avy
   :ensure t
   :bind
@@ -153,10 +185,10 @@
 (find-file "~/.config/i3/config"))
 (global-set-key (kbd "C-c i") 'config-i3)
 
-(defun config-i3()
+(defun config-bash()
 (interactive)
 (find-file "~/.bashrc"))
-(global-set-key (kbd "C-c b") 'config-i3)
+(global-set-key (kbd "C-c b") 'config-bash)
 
 (defun config-reload()
   (interactive)
@@ -292,3 +324,14 @@
 (server-start)
 
 (desktop-save-mode 1)
+
+(use-package eyebrowse
+  :ensure t)
+(eyebrowse-mode t)
+
+(use-package helm
+:ensure t)
+(helm-mode t)
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
