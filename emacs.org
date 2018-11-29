@@ -413,7 +413,6 @@
          :with-sub-superscript nil
          )))
 
-
 (defun my-org-publish-buffer ()
   (interactive)
   (save-buffer)
@@ -428,7 +427,6 @@
                         (file-name-sans-extension rel)
                         ".html"))))
   #+END_SRC
-  <<<<<<< HEAD
 * Emmet support
   #+BEGIN_SRC emacs-lisp
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
@@ -472,8 +470,8 @@
   #+END_SRC
 * Aggressive-indent
   #+BEGIN_SRC emacs-lisp
-  (use-package aggressive-indent
-:ensure t)
+(use-package aggressive-indent
+  :ensure t)
 (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 (add-hook 'css-mode-hook #'aggressive-indent-mode)
   #+END_SRC
