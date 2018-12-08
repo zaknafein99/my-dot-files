@@ -290,7 +290,6 @@
          :with-sub-superscript nil
          )))
 
-
 (defun my-org-publish-buffer ()
   (interactive)
   (save-buffer)
@@ -331,6 +330,6 @@
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 
 (use-package aggressive-indent
-:ensure t)
+  :ensure t)
 (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 (add-hook 'css-mode-hook #'aggressive-indent-mode)
