@@ -127,7 +127,7 @@ font-4 = "DroidSansMono Nerd Font:pixelsize=8;1"
 
 modules-left = i3 xwindow
 modules-center = 
-modules-right = arrow1 networkspeeddown networkspeedup arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 date
+modules-right = arrow1 networkspeedup networkspeeddown arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 date
 
 separator = 
 
