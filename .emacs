@@ -28,10 +28,10 @@
     ("2a9039b093df61e4517302f40ebaf2d3e95215cb2f9684c8c1a446659ee226b9" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(display-time-mode t)
  '(font-use-system-font t)
+ '(gruvbox-theme-comment-italic t)
  '(package-selected-packages
    (quote
-    (gruvbox-theme aggressive-indent transmission evil-leader markdown-mode auctex rainbow-mode rainbow org-bullets beacon gruvbox-theme which-key use-package undo-tree solarized-theme neotree magit linum-relative js2-mode highlight-numbers highlight-escape-sequences goto-chg avy ample-theme)))
- '(gruvbox-theme-comment-italic t)
+    (fzf haskell-mode gruvbox-theme aggressive-indent transmission evil-leader markdown-mode auctex rainbow-mode rainbow org-bullets beacon gruvbox-theme which-key use-package undo-tree solarized-theme neotree magit linum-relative js2-mode highlight-numbers highlight-escape-sequences goto-chg avy ample-theme)))
  '(tool-bar-mode nil))
 
 (custom-set-faces

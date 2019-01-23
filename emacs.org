@@ -446,11 +446,11 @@
   #+END_SRC
 * Start emacs server (because of reasons)
   #+BEGIN_SRC emacs-lisp
-    (server-start)
+;;    (server-start)
   #+END_SRC
 * Saving emacs state
   #+BEGIN_SRC emacs-lisp
-(desktop-save-mode 1)
+;;(desktop-save-mode 1)
   #+END_SRC
 
 * Eyebrowse for managing windows

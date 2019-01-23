@@ -314,9 +314,9 @@
 (use-package markdown-mode
   :ensure t)
 
-(server-start)
+;;    (server-start)
 
-(desktop-save-mode 1)
+;;(desktop-save-mode 1)
 
 (use-package eyebrowse
   :ensure t)
