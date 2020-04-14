@@ -1,8 +1,19 @@
 set nocompatible
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set number
 set relativenumber
 let mapleader = " "
+set splitbelow
+set splitright
+
+"==SET tab completion==
+imap <Tab> <C-P>
+
+"==REMAP OF SPLITS==
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 "==PLUGINS==
 
@@ -12,7 +23,7 @@ Plug 'aradunovic/perun.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mattn/emmet-vim'
-" Plug 'Valloric/YouCompleteMe'
+"Plug 'ycm-core/YouCompleteMe'
 Plug 'vim-scripts/tComment'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -28,6 +39,7 @@ Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 Plug 'ternjs/tern_for_vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-vinegar'
 
 call plug#end()
@@ -122,11 +134,13 @@ let g:netrw_liststyle=3		"tree view"
 
 " =================== vim-airline ========================                          
                                                                                     
-let g:airline_theme='luna'
+" let g:airline_theme='luna'
+let g:airline_theme='dracula'
 " let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts=1
 
-colorscheme perun
+" colorscheme perun
+colorscheme dracula
 
 " neovim
 set termguicolors
