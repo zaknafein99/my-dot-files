@@ -55,6 +55,7 @@ if !exists('g:vscode')
 	Plug 'gosukiwi/vim-atom-dark'
 	Plug 'dracula/vim', { 'as': 'dracula' }
 	Plug 'morhetz/gruvbox'
+	Plug 'shinchu/lightline-gruvbox.vim'
 	call plug#end()
 
 	"==AIRLINE CONFIG
