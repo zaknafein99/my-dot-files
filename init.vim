@@ -54,11 +54,12 @@ if !exists('g:vscode')
 	Plug 'joshdick/onedark.vim'
 	Plug 'gosukiwi/vim-atom-dark'
 	Plug 'dracula/vim', { 'as': 'dracula' }
+	Plug 'morhetz/gruvbox'
 	call plug#end()
 
 	"==AIRLINE CONFIG
 	let g:lightline = {
-		\ 'colorscheme': 'darcula',
+		\ 'colorscheme': 'gruvbox',
 		\ 'active': {
 		\ 'left': [ [ 'mode', 'paste' ],
 		\     [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -219,15 +220,8 @@ if !exists('g:vscode')
 	" let g:netrw_list_hide=netrw_gitignore#Hide()
 	" let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-	" =================== vim-airline ========================                          
-											    
-	" let g:airline_theme='luna'
-	let g:airline_theme='dracula'
-	" let g:airline_solarized_bg='dark'
-	let g:airline_powerline_fonts=0
-
-	" colorscheme perun
-	colorscheme dracula
+	"==COLORSCHEME==
+	colorscheme gruvbox
 
 	" neovim
 	set termguicolors
