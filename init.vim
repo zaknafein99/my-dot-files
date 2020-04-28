@@ -223,7 +223,7 @@ if !exists('g:vscode')
 
 	"==COLORSCHEME==
 	colorscheme gruvbox
-
+	set background=dark
 	" neovim
 	set termguicolors
 
