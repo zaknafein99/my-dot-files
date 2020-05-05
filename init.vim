@@ -25,7 +25,9 @@ if !exists('g:vscode')
 		" In many terminal emulators the mouse works just fine, thus enable it.             
 		"if has('mouse')                                                                     
 		set mouse=a
+		set laststatus=2 "Fixes lightline not showing on Vim"
 		set conceallevel=1
+
 "}}}
 	"=== INSERT A NEW-LINE AFTER THE CURRENT LINE BY PRESSING ENTER (CTRL+SHIFT+O FOR INSERTING A LINE BEFORE THE CURRENT LINE){{{
 		nmap <C-O> O<Esc>j
