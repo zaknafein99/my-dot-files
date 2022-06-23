@@ -8,9 +8,8 @@ let mapleader = " "
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'altercation/vim-colors-solarized'
-Plug 'aradunovic/perun.vim'
-" Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdtree'
+Plug 'morhetz/gruvbox'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mattn/emmet-vim'
 " Plug 'Valloric/YouCompleteMe'
@@ -46,7 +45,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
 map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -125,14 +124,14 @@ let g:netrw_liststyle=3		"tree view"
 
 " colorscheme one-dark
 
-let g:airline_theme='luna'
+" let g:airline_theme='luna'
+let g:airline_theme='gruvbox'
 " let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts=1
 
-" colorscheme perun
-
-" neovim
-" set termguicolors
+" colorscheme Gruvbox
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark    " Setting dark mode
 
 let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
 let $JS_CMD='node'
