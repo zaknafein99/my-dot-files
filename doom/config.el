@@ -7,6 +7,8 @@
 ;Dired config
 (setq ls-lisp-dirs-first t)
 (setq dired-dwim-target t)
+(setq exec-path-from-shell-variables '("PATH"))
+  (exec-path-from-shell-initialize)
 
 ; hide the link count, user, and group columns - default is '(links uid gid)
 (setq ls-lisp-verbosity nil)
