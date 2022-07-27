@@ -1,15 +1,19 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (cmake-ide-setup)
+
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 (beacon-mode 1)
 
+(use-package dired+
+  :ensure t
+  :config (require 'dired+))
+
+(setenv "JAVA_HOME"
+        "c:/Program Files/Amazon Corretto/jdk11.0.16_8")
 ;Dired config
 (setq ls-lisp-dirs-first t)
 (setq dired-dwim-target t)
-(setq exec-path-from-shell-variables '("PATH"))
-  (exec-path-from-shell-initialize)
-
 ; hide the link count, user, and group columns - default is '(links uid gid)
 (setq ls-lisp-verbosity nil)
 
@@ -18,7 +22,6 @@
 (setq ls-lisp-use-localized-time-format t)
 
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-
 
 ;ORG Mode config
 (when (member "Symbola" (font-family-list))
@@ -69,7 +72,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Operator Mono Lig Book" :size 14 :weight 'semi-light)
+(setq doom-font (font-spec :family "Fira Code" :size 14 )
      doom-variable-pitch-font (font-spec :family "Fira Code" :size 14))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -80,7 +83,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-monokai-pro)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
