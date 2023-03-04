@@ -1,9 +1,9 @@
 format = """
-[](#24273a)\
+[](#8839ef)\
 $username\
-[](bg:#5B6078 fg:#24273a)\
+[](bg:#81c8be fg:#8839ef)\
 $directory\
-[](fg:#5B6078 bg:#5e4c76)\
+[](fg:#81c8be bg:#5e4c76)\
 $git_branch\
 $git_status\
 [](fg:#5e4c76 bg:#6e738d)\
@@ -31,12 +31,12 @@ $time\
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
-style_user = "bg:#24273a"
-style_root = "bg:#24273a"
+style_user = "bg:#8839ef"
+style_root = "bg:#8839ef"
 format = '[$user ]($style)'
 
 [directory]
-style = "bg:#5B6078"
+style = "bg:#81c8be fg:#303446"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
