@@ -47,5 +47,7 @@ source ~/.zsh/aliases.zsh
 #TheFuck
 eval $(thefuck --alias)
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 #starship prompt
 eval "$(starship init zsh)"
