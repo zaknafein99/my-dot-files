@@ -9,7 +9,7 @@ bindkey -v
 zstyle :compinstall filename '/home/isma/.zshrc'
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin/:/.local/bin:$PATH"
 # Turn off all beeps
 unsetopt BEEP
 
