@@ -6,10 +6,17 @@
 
 # source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+plugins=( 
+    # other plugins...
+    zsh-autosuggestions
+    sudo
+    zsh-syntax-highlighting
+
+)
 
 export ZSH="$HOME/.oh-my-zsh"
 export XPLR_BOOKMARK_FILE="~/.config/xplr/bookmarks"
-export PATH=~/idea-IC-221.5787.30/bin:~/.local/share/applications:$PATH
+export PATH=/snap/bin:~/idea-IC-221.5787.30/bin:~/.local/share/applications:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
@@ -17,10 +24,10 @@ source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
