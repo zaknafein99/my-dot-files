@@ -1,4 +1,3 @@
-[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 [[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
 [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
 # [[ -f ~/.zsh/nvm.zsh ]] && source ~/.zsh/nvm.zsh
@@ -22,11 +21,10 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

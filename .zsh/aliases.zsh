@@ -14,4 +14,3 @@ alias top="bpytop"
 alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 alias cat=bat
-
