@@ -8,8 +8,8 @@ alias grep='grep --color'
 alias vim="nvim"
 alias ec="emacsclient -c"
 alias vim="lvim"
-alias ec="emacsclient -c -a 'emacs'"
-alias emacs="emacsclient -c -a 'emacs'"
+# alias ec="emacsclient -c -a 'emacs'"
+# alias emacs="emacsclient -c -a 'emacs'"
 alias top="bpytop"
 alias wezterm='flatpak run org.wezfurlong.wezterm'
 
